@@ -1,0 +1,369 @@
+fileFormatVersion: 2
+guid: deb15fd2874e4f745ae65def34583836
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364444
+  packageName: Mobile Main Menu UI Pack (Clean & Animated)
+  packageVersion: 1.0
+  assetPath: Assets/MainMenuUI/UZ/UI_Atlas_MainMenu 1.png
+  uploadId: 885008
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6965064284175010619
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_0"
+  - first:
+      213: -7671030286194256793
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_1"
+  - first:
+      213: -5263663665116491233
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_2"
+  - first:
+      213: 2399102943716524622
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_3"
+  - first:
+      213: -8234039575900325519
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_4"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_03
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1606
+        width: 601
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12d99fd8c5b3f6b0800000000000000
+      internalID: -5263663665116491233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_02
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 1859
+        width: 662
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aaa9d2b85b64da488f93cb6054f8e50
+      internalID: -1419284140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_01
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 1873
+        width: 632
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6c8d857899d0e4bbcc2335d3f53181
+      internalID: -1940891878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_04
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1602
+        width: 638
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a0f3ab36390224b9ee63e789625aa4
+      internalID: -1829988984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_05
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 1330
+        width: 536
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54d714f5a4d6a246846c8a10f4031b3
+      internalID: 1854595495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_06
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 615
+        width: 620
+        height: 614
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab5f667fa235ba46b477a19c5f5e249
+      internalID: -1352134357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_07
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 612
+        width: 625
+        height: 616
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bacc1ac2dd8814d9bb08bfc504b82b
+      internalID: 220816649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_MainMenu 1_08
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 40
+        width: 1509
+        height: 467
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52fcc5a498b58134ea1f75a2043e1442
+      internalID: 713635438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3c594c92cf0b4ae45908dba3cd519d66
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_0": -1419284140
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_1": -1940891878
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_3": -1829988984
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_4": 1854595495
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_5": -1352134357
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_6": 220816649
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 01_33_24_7": 713635438
+      UI_Atlas_MainMenu 1_01: -1940891878
+      UI_Atlas_MainMenu 1_02: -1419284140
+      UI_Atlas_MainMenu 1_03: -5263663665116491233
+      UI_Atlas_MainMenu 1_04: -1829988984
+      UI_Atlas_MainMenu 1_05: 1854595495
+      UI_Atlas_MainMenu 1_06: -1352134357
+      UI_Atlas_MainMenu 1_07: 220816649
+      UI_Atlas_MainMenu 1_08: 713635438
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

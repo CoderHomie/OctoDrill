@@ -1,0 +1,443 @@
+fileFormatVersion: 2
+guid: 246256c090b0a1249b6ccbd493f4abb8
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364444
+  packageName: Mobile Main Menu UI Pack (Clean & Animated)
+  packageVersion: 1.0
+  assetPath: Assets/MainMenuUI/Sprites/UI_Atlas_LevelButtons_01_10.png
+  uploadId: 885008
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2132005360398245053
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_0"
+  - first:
+      213: 3198846467644840705
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_1"
+  - first:
+      213: -9191237634010863669
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_2"
+  - first:
+      213: 9082117532264680339
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_3"
+  - first:
+      213: -5147408225133533613
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_4"
+  - first:
+      213: 8338376746230564494
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_5"
+  - first:
+      213: 7829632341054359174
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_6"
+  - first:
+      213: 6741276710923540333
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_7"
+  - first:
+      213: 9013149720138123666
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_8"
+  - first:
+      213: 5335435622141621770
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_9"
+  - first:
+      213: -6084115532231123771
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_10"
+  - first:
+      213: -5950222716241928746
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_11"
+  - first:
+      213: 1473671275941678631
+    second: "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_12"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_02
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 741
+        width: 407
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00f366edf618d6458cb1ecbe085eb56
+      internalID: 893271116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_06
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 403
+        width: 410
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2715a1b9123bcd4498d326872acc06c7
+      internalID: 1859013388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_08
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 251
+        width: 409
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a83125250fc894b9574eaed0e335a7
+      internalID: 1916124785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_03
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 569
+        width: 401
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f93a035157223a44bcb9ae9ab0168e1
+      internalID: -430686981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_05
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 407
+        width: 410
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c9efbb651b3ca429c8cfc21b797773
+      internalID: -1464505900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_07
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 253
+        width: 409
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ee57395d3f45844697fe39e0a757904
+      internalID: -1039176165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_10
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 89
+        width: 444
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f61fa85c19db8c4981da08a4450bd95
+      internalID: 78048714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_04
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 568
+        width: 413
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adef9a0b0fbfcd845a6e618ea4e5e841
+      internalID: 30342809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_09
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 90
+        width: 408
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce49f357defe8949ae4a2c89497024a
+      internalID: -1985429110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_LevelButtons_01_10_01
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 742
+        width: 414
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cefb688cd17566141ba51d12e0f1ce13
+      internalID: -1231603550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 16f462dbfcab70d4da16cbfb6f73fb0d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_1": 30342809
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_10": -1819150561
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_2": 1859013388
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_3": 1916124785
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_4": -1985429110
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_5": -1231603550
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_6": -430686981
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_7": -1464505900
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_8": -1039176165
+      "ChatGPT Image 1 \u043C\u0430\u0440. 2026 \u0433., 00_38_23_9": 78048714
+      UI_Atlas_LevelButtons_01_10: 893271116
+      UI_Atlas_LevelButtons_01_10_01: -1231603550
+      UI_Atlas_LevelButtons_01_10_02: 893271116
+      UI_Atlas_LevelButtons_01_10_03: -430686981
+      UI_Atlas_LevelButtons_01_10_04: 30342809
+      UI_Atlas_LevelButtons_01_10_05: -1464505900
+      UI_Atlas_LevelButtons_01_10_06: 1859013388
+      UI_Atlas_LevelButtons_01_10_07: -1039176165
+      UI_Atlas_LevelButtons_01_10_08: 1916124785
+      UI_Atlas_LevelButtons_01_10_09: -1985429110
+      UI_Atlas_LevelButtons_01_10_10: 78048714
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

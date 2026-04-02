@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: 465a2f33d6b3f374399b7534e4fc8462
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364444
+  packageName: Mobile Main Menu UI Pack (Clean & Animated)
+  packageVersion: 1.0
+  assetPath: Assets/MainMenuUI/UZ/UI_Atlas_Settings.png
+  uploadId: 885008
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2235447227621275646
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_0"
+  - first:
+      213: -6949555162703920300
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_1"
+  - first:
+      213: 7326361168199352935
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_2"
+  - first:
+      213: -5105181399454345588
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_3"
+  - first:
+      213: 208960610638551463
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_4"
+  - first:
+      213: -2503170329831214466
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_5"
+  - first:
+      213: -8136514052914707349
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_6"
+  - first:
+      213: 3458200275073222775
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_7"
+  - first:
+      213: 1966927108170603669
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_8"
+  - first:
+      213: -6764864964509139142
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_9"
+  - first:
+      213: -655723094275564612
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_10"
+  - first:
+      213: -2746624394158049523
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_11"
+  - first:
+      213: 8124749522751310622
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_12"
+  - first:
+      213: 4597606257836408082
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_13"
+  - first:
+      213: 3158850263368408681
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_14"
+  - first:
+      213: -4257004110272578573
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_15"
+  - first:
+      213: -6951425941699529324
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_16"
+  - first:
+      213: -3033628117988193458
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_17"
+  - first:
+      213: 1478627868865824629
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_18"
+  - first:
+      213: -119662571522557973
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_19"
+  - first:
+      213: -5597175672418364166
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_20"
+  - first:
+      213: 4800129411300606102
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_21"
+  - first:
+      213: -538373054672648761
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_22"
+  - first:
+      213: -327101388182551256
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_23"
+  - first:
+      213: -775367030352943192
+    second: "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_24"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_03
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 557
+        width: 138
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6904a74744c7d9240800000000000000
+      internalID: 4800129411300606102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_04
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 415
+        width: 106
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c548972f805788f0800000000000000
+      internalID: -538373054672648761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_06
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 162
+        width: 499
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82587df3507e57bf0800000000000000
+      internalID: -327101388182551256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_07
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 71
+        width: 493
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a763414bc75d35f0800000000000000
+      internalID: -775367030352943192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_09
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 63
+        width: 858
+        height: 668
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ecc24af0ff9b44689455ec1e5fc195
+      internalID: -1205620878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_01
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 797
+        width: 515
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 403a2cff806231f43af43bf84fb0fa89
+      internalID: -1136837225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_05
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 256
+        width: 499
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fe935f3ac1231408567225f3da879d
+      internalID: 899560906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_02
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 760
+        width: 837
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731370951bea5f6408b2408ebc837a0a
+      internalID: 1885464290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Settings_08
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 67
+        width: 777
+        height: 824
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70551b64f8551bf40b1f611309af7ae5
+      internalID: -249152872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ae946fb0b6c2c1344b3ad371e807b04e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_0": -1205620878
+      "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_1": -1136837225
+      "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_2": 899560906
+      "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_3": 1885464290
+      "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_4": -249152872
+      "ChatGPT Image 28 \u0444\u0435\u0432\u0440. 2026 \u0433., 19_42_07_5": 1489580633
+      UI_Atlas_Settings_01: -1136837225
+      UI_Atlas_Settings_02: 1885464290
+      UI_Atlas_Settings_03: 4800129411300606102
+      UI_Atlas_Settings_04: -538373054672648761
+      UI_Atlas_Settings_05: 899560906
+      UI_Atlas_Settings_06: -327101388182551256
+      UI_Atlas_Settings_07: -775367030352943192
+      UI_Atlas_Settings_08: -249152872
+      UI_Atlas_Settings_09: -1205620878
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

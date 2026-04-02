@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c2e2cff243ee0524f96029ddeb1080d6
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364444
+  packageName: Mobile Main Menu UI Pack (Clean & Animated)
+  packageVersion: 1.0
+  assetPath: Assets/MainMenuUI/Prefabs/Buttons/Button_Help.prefab
+  uploadId: 885008

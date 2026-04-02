@@ -1,0 +1,556 @@
+fileFormatVersion: 2
+guid: 4a7f4db40e9c6b14c855a5995e277139
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364444
+  packageName: Mobile Main Menu UI Pack (Clean & Animated)
+  packageVersion: 1.0
+  assetPath: Assets/MainMenuUI/UZ/UI_Atlas_Icons.png
+  uploadId: 885008
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5628665889562741507
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_0"
+  - first:
+      213: 3581078488315962233
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_1"
+  - first:
+      213: -4252141437081517791
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_2"
+  - first:
+      213: 8119087257761523289
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_3"
+  - first:
+      213: 774044145894953448
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_4"
+  - first:
+      213: 4210862308504954275
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_5"
+  - first:
+      213: 6034579872835571933
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_6"
+  - first:
+      213: 4320575775628963560
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_7"
+  - first:
+      213: -936036789687706648
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_8"
+  - first:
+      213: 287103978128883201
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_9"
+  - first:
+      213: 4598920910537162722
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_10"
+  - first:
+      213: 5458754650088431488
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_11"
+  - first:
+      213: 1720224077411128319
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_12"
+  - first:
+      213: 3121984506555033984
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_13"
+  - first:
+      213: -8406215335099566873
+    second: "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_14"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_04
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 490
+        width: 240
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 973add869eb82b130800000000000000
+      internalID: 3581078488315962233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_02
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 494
+        width: 240
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 121890c44eb5df4c0800000000000000
+      internalID: -4252141437081517791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_05
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 490
+        width: 230
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 956a64b18dacca070800000000000000
+      internalID: 8119087257761523289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_03
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 493
+        width: 224
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e11a84bc05fdba00800000000000000
+      internalID: 774044145894953448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_10
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 261
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a5e480a5fcff6a30800000000000000
+      internalID: 4210862308504954275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_08
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 262
+        width: 240
+        height: 210
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd01619fb622fb350800000000000000
+      internalID: 6034579872835571933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_06
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 266
+        width: 240
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eea58bc6c4c5fb30800000000000000
+      internalID: 4320575775628963560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_11
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 31
+        width: 226
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb97f5cf778203f0800000000000000
+      internalID: -936036789687706648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_15
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 19
+        width: 220
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2effea6b336a2df30800000000000000
+      internalID: 4598920910537162722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_13
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 24
+        width: 240
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f588abe6461cb40800000000000000
+      internalID: 5458754650088431488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_12
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 26
+        width: 255
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff31a2c2fa67fd710800000000000000
+      internalID: 1720224077411128319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_14
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 20
+        width: 240
+        height: 220
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0896c732e54835b20800000000000000
+      internalID: 3121984506555033984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_01
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 494
+        width: 220
+        height: 218
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9d4d59046b053f4a805961fbb377162
+      internalID: 1133493996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_07
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 264
+        width: 225
+        height: 203
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7860a772b6bb98345b29891c2731bf35
+      internalID: 1235607283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Atlas_Icons_09
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 262
+        width: 226
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd77ab2392fac940a6daedc6e2d73d7
+      internalID: 275004927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 241ab2a6c4ac4a24194e95ee163ab6dd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_0": 1133493996
+      "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_14": 275004927
+      "ChatGPT Image 27 \u0444\u0435\u0432\u0440. 2026 \u0433., 23_15_52_9": 1235607283
+      UI_Atlas_Icons_01: 1133493996
+      UI_Atlas_Icons_02: -4252141437081517791
+      UI_Atlas_Icons_03: 774044145894953448
+      UI_Atlas_Icons_04: 3581078488315962233
+      UI_Atlas_Icons_05: 8119087257761523289
+      UI_Atlas_Icons_06: 4320575775628963560
+      UI_Atlas_Icons_07: 1235607283
+      UI_Atlas_Icons_08: 6034579872835571933
+      UI_Atlas_Icons_09: 275004927
+      UI_Atlas_Icons_10: 4210862308504954275
+      UI_Atlas_Icons_11: -936036789687706648
+      UI_Atlas_Icons_12: 1720224077411128319
+      UI_Atlas_Icons_13: 5458754650088431488
+      UI_Atlas_Icons_14: 3121984506555033984
+      UI_Atlas_Icons_15: 4598920910537162722
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

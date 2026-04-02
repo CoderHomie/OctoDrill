@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 042faacea2ece204488449cc3c9feee7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 364444
+  packageName: Mobile Main Menu UI Pack (Clean & Animated)
+  packageVersion: 1.0
+  assetPath: Assets/MainMenuUI/Prefabs/DefaultButton.prefab
+  uploadId: 885008
