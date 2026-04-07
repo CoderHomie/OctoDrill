@@ -37,6 +37,13 @@ public class GridPlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer facingSprite;
     [Tooltip("When enabled, up/down movement rotates the sprite +/-90 degrees. Leave off for left/right-only facing.")]
     [SerializeField] bool faceVerticalWithRotation;
+    [Header("Whirlpool Teleport")]
+    [SerializeField] bool enableWhirlpoolTeleport = true;
+    [SerializeField] string whirlpoolTag = "whirlpool";
+    [Tooltip("Layers checked when looking for a whirlpool at the current cell. Leave as Everything to search all layers.")]
+    [SerializeField] LayerMask whirlpoolLayerMask = ~0;
+    [Tooltip("Prevents immediate re-teleport loops when landing on/near another whirlpool.")]
+    [SerializeField] float whirlpoolTeleportCooldown = 0.15f;
 
     public Vector2Int GridPosition { get; private set; }
     public Vector2Int LastMoveDirection { get; private set; }
@@ -56,6 +63,8 @@ public class GridPlayerController : MonoBehaviour
     Vector3 _moveToWorld;
     Quaternion _facingBaseLocalRotation;
     bool _hasFacingBaseRotation;
+    float _nextAllowedWhirlpoolTeleportTime;
+    readonly Collider2D[] _whirlpoolOverlapResults = new Collider2D[8];
 
     void Awake()
     {
@@ -92,6 +101,7 @@ public class GridPlayerController : MonoBehaviour
         SnapTransformToGrid();
         LastMoveDirection = Vector2Int.right;
         ApplyFacing(LastMoveDirection);
+        CheckWhirlpoolAtCurrentCell();
     }
 
     void Update()
@@ -140,6 +150,7 @@ public class GridPlayerController : MonoBehaviour
         {
             transform.position = _moveToWorld;
             _isMoving = false;
+            CheckWhirlpoolAtCurrentCell();
             return;
         }
 
@@ -148,7 +159,10 @@ public class GridPlayerController : MonoBehaviour
         t = t * t * (3f - 2f * t);
         transform.position = Vector3.Lerp(_moveFromWorld, _moveToWorld, t);
         if (t >= 1f)
+        {
             _isMoving = false;
+            CheckWhirlpoolAtCurrentCell();
+        }
     }
 
     Vector2Int ReadMoveIntent()
@@ -211,7 +225,10 @@ public class GridPlayerController : MonoBehaviour
         _moveToWorld = CellCenterWorld(to);
 
         if (moveDuration <= 0f)
+        {
             transform.position = _moveToWorld;
+            CheckWhirlpoolAtCurrentCell();
+        }
         else
         {
             _isMoving = true;
@@ -219,6 +236,80 @@ public class GridPlayerController : MonoBehaviour
         }
 
         return true;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!enableWhirlpoolTeleport || other == null)
+            return;
+
+        if (Time.time < _nextAllowedWhirlpoolTeleportTime)
+            return;
+
+        if (!other.CompareTag(whirlpoolTag))
+            return;
+
+        if (TryTeleportToRandomTraversableCell())
+            _nextAllowedWhirlpoolTeleportTime = Time.time + Mathf.Max(0f, whirlpoolTeleportCooldown);
+    }
+
+    bool TryTeleportToRandomTraversableCell()
+    {
+        Vector2Int from = GridPosition;
+        int width = maxCell.x - minCell.x + 1;
+        int height = maxCell.y - minCell.y + 1;
+        int totalCells = Mathf.Max(0, width * height);
+        if (totalCells <= 0)
+            return false;
+
+        // Try a shuffled scan so teleport destination feels random but still reliable.
+        int startIndex = UnityEngine.Random.Range(0, totalCells);
+        for (int i = 0; i < totalCells; i++)
+        {
+            int index = (startIndex + i) % totalCells;
+            int x = minCell.x + (index % width);
+            int y = minCell.y + (index / width);
+            Vector2Int candidate = new Vector2Int(x, y);
+
+            if (candidate == from)
+                continue;
+            if (!IsCellTraversable(candidate))
+                continue;
+
+            GridPosition = candidate;
+            _isMoving = false;
+            _moveElapsed = 0f;
+            _moveFromWorld = transform.position;
+            _moveToWorld = CellCenterWorld(candidate);
+            transform.position = _moveToWorld;
+            Moved?.Invoke(from, candidate);
+            return true;
+        }
+
+        return false;
+    }
+
+    void CheckWhirlpoolAtCurrentCell()
+    {
+        if (!enableWhirlpoolTeleport)
+            return;
+        if (Time.time < _nextAllowedWhirlpoolTeleportTime)
+            return;
+
+        Vector2 point = (Vector2)CellCenterWorld(GridPosition);
+        int hitCount = Physics2D.OverlapPointNonAlloc(point, _whirlpoolOverlapResults, whirlpoolLayerMask);
+        for (int i = 0; i < hitCount; i++)
+        {
+            Collider2D hit = _whirlpoolOverlapResults[i];
+            if (hit == null)
+                continue;
+            if (!hit.CompareTag(whirlpoolTag))
+                continue;
+
+            if (TryTeleportToRandomTraversableCell())
+                _nextAllowedWhirlpoolTeleportTime = Time.time + Mathf.Max(0f, whirlpoolTeleportCooldown);
+            break;
+        }
     }
 
     void ApplyFacing(Vector2Int direction)

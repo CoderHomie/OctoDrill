@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4337222444180874176}
   - component: {fileID: 100425986867961810}
   m_Layer: 0
-  m_Name: Trash_tile
-  m_TagString: trash
+  m_Name: Drill_tile
+  m_TagString: drill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: c4065198250751c4eb3c930fb326bffc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ec794907d573ae4cbb0ed0ccca2bcd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -18,6 +18,8 @@ public class TrashTileRevealer : MonoBehaviour
     [SerializeField] bool destroyTrashTiles = true;
     [Tooltip("Reveal the starting tile on scene start.")]
     [SerializeField] bool revealStartingCell = true;
+    [Tooltip("Tiles with this tag are ignored by trash reveal/removal.")]
+    [SerializeField] string ignoreTag = "whirlpool";
 
     readonly Dictionary<Vector2Int, GameObject> _trashTilesByCell = new Dictionary<Vector2Int, GameObject>();
 
@@ -65,6 +67,9 @@ public class TrashTileRevealer : MonoBehaviour
         var renderers = trashRoot.GetComponentsInChildren<SpriteRenderer>(true);
         foreach (var sr in renderers)
         {
+            if (!string.IsNullOrEmpty(ignoreTag) && sr.gameObject.tag == ignoreTag)
+                continue;
+
             Vector2Int cell = player.WorldToCell(sr.transform.position);
             if (!_trashTilesByCell.ContainsKey(cell))
                 _trashTilesByCell.Add(cell, sr.gameObject);
