@@ -48,6 +48,11 @@ public class GridPlayerController : MonoBehaviour
     public Vector2Int GridPosition { get; private set; }
     public Vector2Int LastMoveDirection { get; private set; }
 
+    /// <summary>Inclusive grid bounds (same as movement limits).</summary>
+    public Vector2Int MinCell => minCell;
+    /// <summary>Inclusive grid bounds (same as movement limits).</summary>
+    public Vector2Int MaxCell => maxCell;
+
     /// <summary>Fired after a successful step; args are (fromCell, toCell).</summary>
     public event Action<Vector2Int, Vector2Int> Moved;
 
@@ -65,6 +70,7 @@ public class GridPlayerController : MonoBehaviour
     bool _hasFacingBaseRotation;
     float _nextAllowedWhirlpoolTeleportTime;
     readonly Collider2D[] _whirlpoolOverlapResults = new Collider2D[8];
+    ContactFilter2D _whirlpoolContactFilter;
 
     void Awake()
     {
@@ -81,6 +87,13 @@ public class GridPlayerController : MonoBehaviour
             _facingBaseLocalRotation = facingSprite.transform.localRotation;
             _hasFacingBaseRotation = true;
         }
+
+        _whirlpoolContactFilter = new ContactFilter2D
+        {
+            useLayerMask = true,
+            layerMask = whirlpoolLayerMask,
+            useTriggers = true
+        };
     }
 
     void OnEnable()
@@ -297,7 +310,8 @@ public class GridPlayerController : MonoBehaviour
             return;
 
         Vector2 point = (Vector2)CellCenterWorld(GridPosition);
-        int hitCount = Physics2D.OverlapPointNonAlloc(point, _whirlpoolOverlapResults, whirlpoolLayerMask);
+        _whirlpoolContactFilter.layerMask = whirlpoolLayerMask;
+        int hitCount = Physics2D.OverlapPoint(point, _whirlpoolContactFilter, _whirlpoolOverlapResults);
         for (int i = 0; i < hitCount; i++)
         {
             Collider2D hit = _whirlpoolOverlapResults[i];
