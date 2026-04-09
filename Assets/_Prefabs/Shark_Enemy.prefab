@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2408584395707253536
+--- !u!1 &5534506605700930177
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1015472171352614058}
-  - component: {fileID: 969943493270522874}
-  - component: {fileID: 7730399833990708551}
-  - component: {fileID: 3379226934869178947}
-  - component: {fileID: 7490582942807480901}
-  m_Layer: 8
-  m_Name: Player
-  m_TagString: Untagged
+  - component: {fileID: 3765394564625047733}
+  - component: {fileID: 4515677869245777153}
+  - component: {fileID: 1812686478444784907}
+  - component: {fileID: -8139952074153164609}
+  - component: {fileID: -269486695454243720}
+  m_Layer: 9
+  m_Name: Shark_Enemy
+  m_TagString: shark
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1015472171352614058
+--- !u!4 &3765394564625047733
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408584395707253536}
+  m_GameObject: {fileID: 5534506605700930177}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.83913, y: -2.38178, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &969943493270522874
+--- !u!114 &4515677869245777153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534506605700930177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f79d6145bd46d44a1326fdf995693e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SharkEnemy
+  sharkSpeed: 5
+--- !u!212 &1812686478444784907
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408584395707253536}
+  m_GameObject: {fileID: 5534506605700930177}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,70 +97,23 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 04dd22c38d6741e4eabf9ec8967ebe8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c2c5b9559cceb584baed58c4dcf830fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 15.36, y: 10.24}
+  m_Size: {x: 1.5, y: 1.2304688}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &7730399833990708551
-MonoBehaviour:
+--- !u!70 &-8139952074153164609
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408584395707253536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 894dacd8623aab845adae4db61db0988, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GridPlayerController
-  cellSize: 1
-  gridOrigin: {x: 0, y: 0}
-  startingCell: {x: 0, y: 0}
-  useTransformPositionAsStartingCell: 1
-  minCell: {x: -8, y: -4}
-  maxCell: {x: 7, y: 3}
-  moveDuration: 0.1
-  moveRepeatInitialDelay: 0.2
-  moveRepeatInterval: 0.12
-  moveAction: {fileID: 0}
-  facingSprite: {fileID: 0}
-  faceVerticalWithRotation: 1
-  enableWhirlpoolTeleport: 1
-  whirlpoolTag: whirlpool
-  whirlpoolLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  whirlpoolTeleportCooldown: 0.15
---- !u!114 &3379226934869178947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408584395707253536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0a470b97147d94d8499e23903d0292, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TrashTileRevealer
-  player: {fileID: 0}
-  trashRoot: {fileID: 0}
-  destroyTrashTiles: 1
-  revealStartingCell: 1
-  ignoreTag: whirlpool
---- !u!58 &7490582942807480901
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2408584395707253536}
+  m_GameObject: {fileID: 5534506605700930177}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -175,5 +141,33 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Offset: {x: -0.03, y: 0.025}
+  m_Size: {x: 1.21, y: 0.5}
+  m_Direction: 1
+--- !u!50 &-269486695454243720
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5534506605700930177}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7

@@ -4281,6 +4281,14 @@ PrefabInstance:
       propertyPath: trashRoot
       value: 
       objectReference: {fileID: 275275583}
+    - target: {fileID: 7490582942807480901, guid: d53b6d90608fa844080458fe4e4a41fa, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490582942807480901, guid: d53b6d90608fa844080458fe4e4a41fa, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 7730399833990708551, guid: d53b6d90608fa844080458fe4e4a41fa, type: 3}
       propertyPath: moveAction
       value: 
@@ -11633,6 +11641,7 @@ GameObject:
   - component: {fileID: 917467899}
   - component: {fileID: 917467902}
   - component: {fileID: 917467898}
+  - component: {fileID: 917467903}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -11855,6 +11864,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &917467903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917467897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcfe8244d520b94386c22bbe433e839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Main
+  sharkPrefab: {fileID: 5534506605700930177, guid: 136052b8be114e74eb6a7a1a4efa1338, type: 3}
+  sharkSpawnPerSecond: 0.5
+  sharkSpeed: 5
+  minCell: {x: -7, y: -3}
+  maxCell: {x: 7, y: 3}
 --- !u!1 &921845338
 GameObject:
   m_ObjectHideFlags: 0
