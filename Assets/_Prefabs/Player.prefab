@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 04dd22c38d6741e4eabf9ec8967ebe8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -106,17 +106,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GridPlayerController
   cellSize: 1
-  gridOrigin: {x: 0, y: 0}
+  gridOrigin: {x: -8.5, y: -3.5750003}
   startingCell: {x: 0, y: 0}
   useTransformPositionAsStartingCell: 1
-  minCell: {x: -8, y: -4}
-  maxCell: {x: 7, y: 3}
+  minCell: {x: 0, y: 0}
+  maxCell: {x: 16, y: 7}
   moveDuration: 0.1
   moveRepeatInitialDelay: 0.2
   moveRepeatInterval: 0.12
   moveAction: {fileID: 0}
   facingSprite: {fileID: 0}
   faceVerticalWithRotation: 1
+  enableWhirlpoolTeleport: 1
+  whirlpoolTag: whirlpool
+  whirlpoolLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  whirlpoolTeleportCooldown: 0.15
 --- !u!114 &3379226934869178947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,5 +137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrashTileRevealer
   player: {fileID: 0}
   trashRoot: {fileID: 0}
+  trashRootObject: {fileID: 0}
+  proceduralBoard: {fileID: 0}
   destroyTrashTiles: 1
   revealStartingCell: 1
+  ignoreTag: whirlpool

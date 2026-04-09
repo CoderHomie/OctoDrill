@@ -65,6 +65,7 @@ public class GridPlayerController : MonoBehaviour
     bool _hasFacingBaseRotation;
     float _nextAllowedWhirlpoolTeleportTime;
     readonly Collider2D[] _whirlpoolOverlapResults = new Collider2D[8];
+    bool _skipDefaultGridInit;
 
     void Awake()
     {
@@ -97,11 +98,26 @@ public class GridPlayerController : MonoBehaviour
 
     void Start()
     {
-        GridPosition = useTransformPositionAsStartingCell ? WorldToCell(transform.position) : startingCell;
+        if (!_skipDefaultGridInit)
+            GridPosition = useTransformPositionAsStartingCell ? WorldToCell(transform.position) : startingCell;
         SnapTransformToGrid();
         LastMoveDirection = Vector2Int.right;
         ApplyFacing(LastMoveDirection);
         CheckWhirlpoolAtCurrentCell();
+    }
+
+    /// <summary>
+    /// Call from a procedural board generator (early in play mode) so bounds and cell size match the spawned grid.
+    /// Prevents <see cref="Start"/> from overwriting <paramref name="startCell"/>.
+    /// </summary>
+    public void ApplyGeneratedGrid(Vector2 origin, Vector2Int min, Vector2Int max, float cellSizeWorld, Vector2Int startCell)
+    {
+        gridOrigin = origin;
+        minCell = min;
+        maxCell = max;
+        cellSize = cellSizeWorld;
+        GridPosition = startCell;
+        _skipDefaultGridInit = true;
     }
 
     void Update()

@@ -12,6 +12,10 @@ public class TrashTileRevealer : MonoBehaviour
     [SerializeField] GridPlayerController player;
     [Tooltip("Parent transform that contains all trash tile SpriteRenderers (for example: Trash Grid).")]
     [SerializeField] Transform trashRoot;
+    [Tooltip("Alternative to Trash Root: assign the same GameObject here if the Transform slot won't accept your drag.")]
+    [SerializeField] GameObject trashRootObject;
+    [Tooltip("If Trash Root is empty, uses the tile parent from AutoTileBoardGenerator (good when the Player is a prefab and scene references cannot be saved on the asset).")]
+    [SerializeField] AutoTileBoardGenerator proceduralBoard;
 
     [Header("Behavior")]
     [Tooltip("If true, destroys trash tile gameobjects; otherwise just deactivates them.")]
@@ -28,7 +32,16 @@ public class TrashTileRevealer : MonoBehaviour
         if (player == null)
             player = GetComponent<GridPlayerController>();
 
+        ResolveTrashRoot();
         RebuildTrashIndex();
+    }
+
+    void ResolveTrashRoot()
+    {
+        if (trashRoot == null && proceduralBoard != null)
+            trashRoot = proceduralBoard.GetTileParentTransform();
+        if (trashRoot == null && trashRootObject != null)
+            trashRoot = trashRootObject.transform;
     }
 
     void OnEnable()
