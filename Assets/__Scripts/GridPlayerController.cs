@@ -240,6 +240,15 @@ public class GridPlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+        if (other.gameObject.layer == enemyLayer)
+            {
+            //Debug.Log("Test");
+            Destroy(gameObject);
+            return;
+            }
+
         if (!enableWhirlpoolTeleport || other == null)
             return;
 

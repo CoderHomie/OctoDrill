@@ -8,6 +8,7 @@ TagManager:
   - trash
   - drill
   - net
+  - shark
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - Enemy
   - 
   - 
   - 
