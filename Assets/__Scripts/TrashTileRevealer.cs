@@ -16,6 +16,18 @@ public class TrashTileRevealer : MonoBehaviour
     [Tooltip("Prefab spawned after all trash is cleared. Use a simple sprite marker with no collider.")]
     [SerializeField] GameObject goalPrefab;
 
+    [Header("Random hazards (each round)")]
+    [Tooltip("Placed on a trash cell instead of trash when the roll hits (2% default). Needs whirlpool tag + trigger collider for teleport.")]
+    [SerializeField] GameObject whirlpoolPrefab;
+    [Tooltip("Placed on a trash cell instead of trash when the roll hits (2% default).")]
+    [SerializeField] GameObject netPrefab;
+    [Range(0f, 1f)]
+    [SerializeField] float whirlpoolSpawnChance = 0.02f;
+    [Range(0f, 1f)]
+    [SerializeField] float netSpawnChance = 0.02f;
+    [Tooltip("Rebuild skips renderers with this tag so spawned nets are not treated as trash.")]
+    [SerializeField] string netIgnoreTag = "net";
+
     [Header("Behavior")]
     [Tooltip("Reveal the starting tile on scene start.")]
     [SerializeField] bool revealStartingCell = true;
@@ -30,6 +42,7 @@ public class TrashTileRevealer : MonoBehaviour
 
     readonly Dictionary<Vector2Int, GameObject> _trashTilesByCell = new Dictionary<Vector2Int, GameObject>();
     readonly List<GameObject> _allTrashTiles = new List<GameObject>();
+    readonly List<GameObject> _spawnedHazards = new List<GameObject>();
     GameObject _goalInstance;
     bool _goalActive;
     Vector2Int _activeGoalCell;
@@ -40,6 +53,7 @@ public class TrashTileRevealer : MonoBehaviour
             player = GetComponent<GridPlayerController>();
 
         RebuildTrashIndex();
+        ApplyRandomTileMix();
     }
 
     void OnEnable()
@@ -58,6 +72,13 @@ public class TrashTileRevealer : MonoBehaviour
     {
         yield return null;
 
+        if (revealStartingCell && player != null)
+            RevealCell(player.GridPosition);
+    }
+
+    /// <summary>Call after <see cref="GridPlayerController.RespawnAtLevelStart"/> so the starting cell clears like a new round.</summary>
+    public void ApplyRevealAfterRespawn()
+    {
         if (revealStartingCell && player != null)
             RevealCell(player.GridPosition);
     }
@@ -85,6 +106,8 @@ public class TrashTileRevealer : MonoBehaviour
         foreach (var sr in renderers)
         {
             if (!string.IsNullOrEmpty(ignoreTag) && sr.gameObject.CompareTag(ignoreTag))
+                continue;
+            if (!string.IsNullOrEmpty(netIgnoreTag) && sr.gameObject.CompareTag(netIgnoreTag))
                 continue;
 
             Vector2Int cell = player.WorldToCell(sr.transform.position);
@@ -153,6 +176,8 @@ public class TrashTileRevealer : MonoBehaviour
 
     void StartNextRound()
     {
+        DestroySpawnedHazards();
+
         if (_goalInstance != null)
             Destroy(_goalInstance);
         _goalInstance = null;
@@ -176,7 +201,75 @@ public class TrashTileRevealer : MonoBehaviour
                 _trashTilesByCell.Add(cell, tile);
         }
 
+        ApplyRandomTileMix();
+
         if (revealStartingCell && player != null)
             RevealCell(player.GridPosition);
+    }
+
+    void DestroySpawnedHazards()
+    {
+        for (int i = 0; i < _spawnedHazards.Count; i++)
+        {
+            if (_spawnedHazards[i] != null)
+                Destroy(_spawnedHazards[i]);
+        }
+
+        _spawnedHazards.Clear();
+    }
+
+    /// <summary>
+    /// Each indexed trash cell becomes trash (default), whirlpool, or net using independent probability bands.
+    /// </summary>
+    void ApplyRandomTileMix()
+    {
+        if (player == null || trashRoot == null || _trashTilesByCell.Count == 0)
+            return;
+
+        float w = Mathf.Clamp01(whirlpoolSpawnChance);
+        float n = Mathf.Clamp01(netSpawnChance);
+        float whirlpoolCutoff = w;
+        float netCutoff = w + n;
+
+        var cells = new List<Vector2Int>(_trashTilesByCell.Keys);
+
+        foreach (Vector2Int cell in cells)
+        {
+            if (!_trashTilesByCell.ContainsKey(cell))
+                continue;
+
+            float r = Random.value;
+            GameObject prefab = null;
+            if (r < whirlpoolCutoff)
+                prefab = whirlpoolPrefab;
+            else if (r < netCutoff)
+                prefab = netPrefab;
+
+            if (prefab == null)
+                continue;
+
+            _trashTilesByCell.Remove(cell);
+            SetTrashVisualsActiveAtCell(cell, false);
+
+            Vector3 pos = player.CellCenterWorld(cell);
+            GameObject spawned = Instantiate(prefab, pos, Quaternion.identity, trashRoot);
+            spawned.name = $"{prefab.name} ({cell.x},{cell.y})";
+            _spawnedHazards.Add(spawned);
+        }
+    }
+
+    void SetTrashVisualsActiveAtCell(Vector2Int cell, bool active)
+    {
+        if (player == null)
+            return;
+
+        for (int i = 0; i < _allTrashTiles.Count; i++)
+        {
+            GameObject t = _allTrashTiles[i];
+            if (t == null)
+                continue;
+            if (player.WorldToCell(t.transform.position) == cell)
+                t.SetActive(active);
+        }
     }
 }

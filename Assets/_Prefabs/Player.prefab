@@ -138,9 +138,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TrashTileRevealer
   player: {fileID: 0}
   trashRoot: {fileID: 0}
-  destroyTrashTiles: 1
+  goalPrefab: {fileID: 0}
+  whirlpoolPrefab: {fileID: 1790185882048837865, guid: db6b9e7639aa7634ab53fc533b59820b, type: 3}
+  netPrefab: {fileID: 1790185882048837865, guid: cd5d1ca0501b79d49bd7861379d023c1, type: 3}
+  whirlpoolSpawnChance: 0.02
+  netSpawnChance: 0.02
+  netIgnoreTag: net
   revealStartingCell: 1
   ignoreTag: whirlpool
+  spawnGoalAtRandomCell: 1
+  goalSpawnCell: {x: 15, y: 7}
+  spawnGoalAtLastClearedCell: 0
 --- !u!58 &7490582942807480901
 CircleCollider2D:
   m_ObjectHideFlags: 0

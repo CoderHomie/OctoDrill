@@ -44,6 +44,9 @@ public class GridPlayerController : MonoBehaviour
     [SerializeField] LayerMask whirlpoolLayerMask = ~0;
     [Tooltip("Prevents immediate re-teleport loops when landing on/near another whirlpool.")]
     [SerializeField] float whirlpoolTeleportCooldown = 0.15f;
+    [Header("Net")]
+    [Tooltip("If a collider with this tag overlaps the cell center after a step, the player is destroyed (same outcome as Enemy-layer contact).")]
+    [SerializeField] string netTag = "net";
 
     public Vector2Int GridPosition { get; private set; }
     public Vector2Int LastMoveDirection { get; private set; }
@@ -71,6 +74,7 @@ public class GridPlayerController : MonoBehaviour
     float _nextAllowedWhirlpoolTeleportTime;
     readonly Collider2D[] _whirlpoolOverlapResults = new Collider2D[8];
     ContactFilter2D _whirlpoolContactFilter;
+    Vector2Int _respawnCell;
 
     void Awake()
     {
@@ -111,10 +115,34 @@ public class GridPlayerController : MonoBehaviour
     void Start()
     {
         GridPosition = useTransformPositionAsStartingCell ? WorldToCell(transform.position) : startingCell;
+        _respawnCell = GridPosition;
         SnapTransformToGrid();
         LastMoveDirection = Vector2Int.right;
         ApplyFacing(LastMoveDirection);
-        CheckWhirlpoolAtCurrentCell();
+        ResolveLandingHazards();
+    }
+
+    /// <summary>Used by <see cref="PlayerLivesManager"/> after losing a life (not on final game over).</summary>
+    public void RespawnAtLevelStart()
+    {
+        GridPosition = _respawnCell;
+        _isMoving = false;
+        _moveElapsed = 0f;
+        _heldDirection = Vector2Int.zero;
+        _repeatArmed = false;
+        LastMoveDirection = Vector2Int.right;
+        _nextAllowedWhirlpoolTeleportTime = 0f;
+        SnapTransformToGrid();
+        ApplyFacing(LastMoveDirection);
+        ResolveLandingHazards();
+    }
+
+    void HandleFatalHit()
+    {
+        if (PlayerLivesManager.Instance != null)
+            PlayerLivesManager.Instance.RegisterPlayerDeath(this);
+        else
+            Destroy(gameObject);
     }
 
     void Update()
@@ -163,7 +191,7 @@ public class GridPlayerController : MonoBehaviour
         {
             transform.position = _moveToWorld;
             _isMoving = false;
-            CheckWhirlpoolAtCurrentCell();
+            ResolveLandingHazards();
             return;
         }
 
@@ -174,7 +202,7 @@ public class GridPlayerController : MonoBehaviour
         if (t >= 1f)
         {
             _isMoving = false;
-            CheckWhirlpoolAtCurrentCell();
+            ResolveLandingHazards();
         }
     }
 
@@ -240,7 +268,7 @@ public class GridPlayerController : MonoBehaviour
         if (moveDuration <= 0f)
         {
             transform.position = _moveToWorld;
-            CheckWhirlpoolAtCurrentCell();
+            ResolveLandingHazards();
         }
         else
         {
@@ -256,11 +284,10 @@ public class GridPlayerController : MonoBehaviour
         
         int enemyLayer = LayerMask.NameToLayer("Enemy");
         if (other.gameObject.layer == enemyLayer)
-            {
-            //Debug.Log("Test");
-            Destroy(gameObject);
+        {
+            HandleFatalHit();
             return;
-            }
+        }
 
         if (!enableWhirlpoolTeleport || other == null)
             return;
@@ -305,6 +332,34 @@ public class GridPlayerController : MonoBehaviour
             _moveToWorld = CellCenterWorld(candidate);
             transform.position = _moveToWorld;
             Moved?.Invoke(from, candidate);
+            return true;
+        }
+
+        return false;
+    }
+
+    void ResolveLandingHazards()
+    {
+        if (CheckNetAtCurrentCell())
+            return;
+        CheckWhirlpoolAtCurrentCell();
+    }
+
+    bool CheckNetAtCurrentCell()
+    {
+        if (string.IsNullOrEmpty(netTag))
+            return false;
+
+        Vector2 point = (Vector2)CellCenterWorld(GridPosition);
+        _whirlpoolContactFilter.layerMask = whirlpoolLayerMask;
+        int hitCount = Physics2D.OverlapPoint(point, _whirlpoolContactFilter, _whirlpoolOverlapResults);
+        for (int i = 0; i < hitCount; i++)
+        {
+            Collider2D hit = _whirlpoolOverlapResults[i];
+            if (hit == null || !hit.CompareTag(netTag))
+                continue;
+
+            HandleFatalHit();
             return true;
         }
 

@@ -23,6 +23,9 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerLivesManager.Instance != null && PlayerLivesManager.Instance.IsGameOver)
+            return;
+
         if (Time.time >= nextSharkSpawnTime)
         {
             SpawnShark();
