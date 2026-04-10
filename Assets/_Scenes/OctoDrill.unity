@@ -11879,6 +11879,10 @@ MonoBehaviour:
   sharkPrefab: {fileID: 5534506605700930177, guid: 136052b8be114e74eb6a7a1a4efa1338, type: 3}
   sharkSpawnPerSecond: 0.5
   sharkSpeed: 5
+  urchinPrefab: {fileID: 7568794604916490828, guid: 531d6fd19747625428df42f6316cffb1, type: 3}
+  urchinSpawnPerSecond: 0.1
+  urchinSpeed: 2
+  maxSpikes: 7
   minCell: {x: -7, y: -3}
   maxCell: {x: 7, y: 3}
 --- !u!1 &921845338
