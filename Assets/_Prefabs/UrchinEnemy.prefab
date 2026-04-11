@@ -181,3 +181,8 @@ MonoBehaviour:
   minVisibleY: -4
   maxVisibleY: 3
   entrySide: 0
+  spikePrefab: {fileID: 6643081801648376264, guid: 8b11aee4c66fbb546aeda4df10479650, type: 3}
+  spikeCount: 6
+  spikeSpeed: 3
+  startAngle: 0
+  spikeAngleStep: 60

@@ -127,5 +127,12 @@ public class PlayerLivesManager : MonoBehaviour
             if (urchins[i] != null)
                 Destroy(urchins[i].gameObject);
         }
+
+        var spike = FindObjectsByType<Spike>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        for (int i = 0; i < spike.Length; i++)
+        {
+            if (spike[i] != null)
+                Destroy(spike[i].gameObject);
+        }
     }
 }

@@ -13,7 +13,7 @@ public class Main : MonoBehaviour
     public float urchinSpawnPerSecond = 0.5f;
     private float nextUrchinSpawnTime = 0f;
     public float urchinSpeed = 2f;
-    public int maxSpikes = 7; 
+    public int numSpikes = 6; 
 
     [Header("Bounds")]
     [SerializeField] Vector2Int minCell = new Vector2Int(-8, -4);
@@ -119,9 +119,10 @@ public class Main : MonoBehaviour
         UrchinEnemy urchinEnemy = urchin.GetComponent<UrchinEnemy>();
         urchinEnemy.urchinSpeed = urchinSpeed;
         urchinEnemy.entrySide = entrySide;
+        urchinEnemy.spikeCount = numSpikes;
 
         SpriteRenderer spriteRend = urchin.GetComponentInChildren<SpriteRenderer>();
-        if (spriteRend != null && entrySide == UrchinEnemy.EntrySide.Right)
+        if (spriteRend != null && entrySide == UrchinEnemy.EntrySide.Left)
             spriteRend.flipX = true;
     }    
 

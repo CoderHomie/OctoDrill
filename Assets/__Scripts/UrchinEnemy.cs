@@ -24,6 +24,14 @@ public class UrchinEnemy : MonoBehaviour
     MoveState state = MoveState.Entering;
     float pauseTimer;
 
+    [Header("Spike Attributes")]
+    public GameObject spikePrefab;
+    public int spikeCount = 6;
+    public float spikeSpeed = 3f;
+    public float startAngle = 0f;
+    public float spikeAngleStep = 60f;
+    bool hasFiredThisPause;
+
     public Vector3 pos
     {
         get { return transform.position; }
@@ -46,6 +54,13 @@ public class UrchinEnemy : MonoBehaviour
 
             case MoveState.Paused:
                 pauseTimer -= Time.deltaTime;
+
+                if (!hasFiredThisPause)
+                {
+                    hasFiredThisPause = true;
+                    FireSpikesBurst();;
+                }
+
                 if (pauseTimer <= 0f)
                 {
                     state = MoveState.Exiting;
@@ -136,5 +151,34 @@ public class UrchinEnemy : MonoBehaviour
         Vector3 tempPos = pos;
         tempPos.y += direction * urchinSpeed * Time.deltaTime;
         pos = tempPos;
+    }
+
+    void FireSpikesBurst()
+    {
+        if (spikePrefab == null || spikeCount <= 0)
+            return;
+
+        float spawnOffsetY = 0f; // adjust for sprite size
+        Vector3 spawnPoint = transform.position + Vector3.up * spawnOffsetY;
+
+        for (int i = 0; i < spikeCount; i++)
+        {
+            float angle = i * spikeAngleStep;   // first spike is always 0
+            Quaternion rot = Quaternion.Euler(0f, 0f, angle);
+
+            // Angle 0 points upward from the urchin
+            Vector2 dir = rot * Vector2.up;
+
+            GameObject spikeObj = Instantiate(spikePrefab, spawnPoint, rot);
+
+            Spike spike = spikeObj.GetComponent<Spike>();
+            if (spike != null)
+                spike.Initialize(dir, spikeSpeed);
+            else
+            {
+                Rigidbody2D rb = spikeObj.GetComponent<Rigidbody2D>();
+                if (rb != null) rb.linearVelocity = dir * spikeSpeed;
+            }
+        }
     }
 }
