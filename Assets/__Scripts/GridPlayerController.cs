@@ -56,6 +56,12 @@ public class GridPlayerController : MonoBehaviour
     /// <summary>Inclusive grid bounds (same as movement limits).</summary>
     public Vector2Int MaxCell => maxCell;
 
+    /// <summary>World-space Y of the top edge of the grid (above the highest row).</summary>
+    public float WorldYTopOfGrid()
+    {
+        return gridOrigin.y + (maxCell.y + 1) * cellSize;
+    }
+
     /// <summary>Fired after a successful step; args are (fromCell, toCell).</summary>
     public event Action<Vector2Int, Vector2Int> Moved;
 

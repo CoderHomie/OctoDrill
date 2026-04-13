@@ -39,6 +39,8 @@ public class TrashTileRevealer : MonoBehaviour
     [SerializeField] Vector2Int goalSpawnCell = new Vector2Int(15, 7);
     [Tooltip("If true (and Random is off), goal spawns where the final trash tile was cleared.")]
     [SerializeField] bool spawnGoalAtLastClearedCell;
+    [Tooltip("Run score increase each time Doc clears a trash tile (see ScoreHud).")]
+    [SerializeField] int scorePerTrashCleared = 100;
 
     readonly Dictionary<Vector2Int, GameObject> _trashTilesByCell = new Dictionary<Vector2Int, GameObject>();
     readonly List<GameObject> _allTrashTiles = new List<GameObject>();
@@ -124,6 +126,9 @@ public class TrashTileRevealer : MonoBehaviour
 
         tile.SetActive(false);
         _trashTilesByCell.Remove(cell);
+
+        if (scorePerTrashCleared != 0)
+            ScoreHud.TryAddScore(scorePerTrashCleared);
 
         if (_trashTilesByCell.Count == 0)
             SpawnGoal(cell);
