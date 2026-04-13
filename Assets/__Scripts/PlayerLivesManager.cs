@@ -112,7 +112,8 @@ public class PlayerLivesManager : MonoBehaviour
         livesText.text = string.Format(livesTextFormat, _lives);
     }
 
-    static void ClearSpawnedEnemies()
+    /// <summary>Clears sharks, urchins, and spike projectiles. Used on death and when advancing to a new grid round.</summary>
+    public static void ClearSpawnedEnemies()
     {
         var sharks = FindObjectsByType<SharkEnemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
         for (int i = 0; i < sharks.Length; i++)

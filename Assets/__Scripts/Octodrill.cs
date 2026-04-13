@@ -14,6 +14,7 @@ public class Main : MonoBehaviour
     private float nextUrchinSpawnTime = 0f;
     public float urchinSpeed = 2f;
     public int numSpikes = 6; 
+    float _spawnResumeTime;
 
     [Header("Bounds")]
     [SerializeField] Vector2Int minCell = new Vector2Int(-8, -4);
@@ -24,6 +25,8 @@ public class Main : MonoBehaviour
     void Update()
     {
         if (PlayerLivesManager.Instance != null && PlayerLivesManager.Instance.IsGameOver)
+            return;
+        if (Time.time < _spawnResumeTime)
             return;
 
         if (Time.time >= nextSharkSpawnTime)
@@ -37,6 +40,15 @@ public class Main : MonoBehaviour
             SpawnUrchin();
             nextUrchinSpawnTime = Time.time + (1f / urchinSpawnPerSecond);
         }
+    }
+
+    /// <summary>Prevents new enemies from spawning until the delay has elapsed.</summary>
+    public void PauseSpawningForSeconds(float seconds)
+    {
+        float resumeAt = Time.time + Mathf.Max(0f, seconds);
+        _spawnResumeTime = Mathf.Max(_spawnResumeTime, resumeAt);
+        nextSharkSpawnTime = Mathf.Max(nextSharkSpawnTime, _spawnResumeTime);
+        nextUrchinSpawnTime = Mathf.Max(nextUrchinSpawnTime, _spawnResumeTime);
     }
 
     void SpawnShark()

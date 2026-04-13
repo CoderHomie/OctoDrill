@@ -41,6 +41,8 @@ public class TrashTileRevealer : MonoBehaviour
     [SerializeField] bool spawnGoalAtLastClearedCell;
     [Tooltip("Run score increase each time Doc clears a trash tile (see ScoreHud).")]
     [SerializeField] int scorePerTrashCleared = 100;
+    [Tooltip("Delay before enemies begin spawning after Doc hits the drill tile and a new round starts.")]
+    [SerializeField] float enemySpawnDelayAfterGoal = 1.5f;
 
     readonly Dictionary<Vector2Int, GameObject> _trashTilesByCell = new Dictionary<Vector2Int, GameObject>();
     readonly List<GameObject> _allTrashTiles = new List<GameObject>();
@@ -181,6 +183,10 @@ public class TrashTileRevealer : MonoBehaviour
 
     void StartNextRound()
     {
+        PlayerLivesManager.ClearSpawnedEnemies();
+        Main enemySpawner = FindFirstObjectByType<Main>();
+        if (enemySpawner != null)
+            enemySpawner.PauseSpawningForSeconds(enemySpawnDelayAfterGoal);
         DestroySpawnedHazards();
 
         if (_goalInstance != null)

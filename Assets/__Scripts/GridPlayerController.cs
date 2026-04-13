@@ -81,9 +81,11 @@ public class GridPlayerController : MonoBehaviour
     readonly Collider2D[] _whirlpoolOverlapResults = new Collider2D[8];
     ContactFilter2D _whirlpoolContactFilter;
     Vector2Int _respawnCell;
+    int _enemyLayerIndex = -1;
 
     void Awake()
     {
+        _enemyLayerIndex = LayerMask.NameToLayer("Enemy");
         if (moveAction != null && moveAction.action != null)
         {
             _move = moveAction.action;
@@ -330,6 +332,8 @@ public class GridPlayerController : MonoBehaviour
                 continue;
             if (!IsCellTraversable(candidate))
                 continue;
+            if (CellCenterOverlapsNetOrEnemy(candidate))
+                continue;
 
             GridPosition = candidate;
             _isMoving = false;
@@ -339,6 +343,26 @@ public class GridPlayerController : MonoBehaviour
             transform.position = _moveToWorld;
             Moved?.Invoke(from, candidate);
             return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>True if the cell center overlaps a net (tag) or any collider on the Enemy layer — unsafe for whirlpool teleport.</summary>
+    bool CellCenterOverlapsNetOrEnemy(Vector2Int cell)
+    {
+        Vector2 point = (Vector2)CellCenterWorld(cell);
+        _whirlpoolContactFilter.layerMask = whirlpoolLayerMask;
+        int hitCount = Physics2D.OverlapPoint(point, _whirlpoolContactFilter, _whirlpoolOverlapResults);
+        for (int i = 0; i < hitCount; i++)
+        {
+            Collider2D hit = _whirlpoolOverlapResults[i];
+            if (hit == null)
+                continue;
+            if (!string.IsNullOrEmpty(netTag) && hit.CompareTag(netTag))
+                return true;
+            if (_enemyLayerIndex >= 0 && hit.gameObject.layer == _enemyLayerIndex)
+                return true;
         }
 
         return false;
