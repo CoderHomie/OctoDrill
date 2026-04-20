@@ -12245,6 +12245,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcfe8244d520b94386c22bbe433e839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Main
+  preSpawnHazardSprite: {fileID: 21300000, guid: e0f789c4ab5b86643b7368be8c45a35c, type: 3}
+  preSpawnWarningSeconds: 1
+  preSpawnHazardColor: {r: 1, g: 1, b: 1, a: 1}
+  preSpawnHazardSortingOrder: 10
   sharkPrefab: {fileID: 5534506605700930177, guid: 136052b8be114e74eb6a7a1a4efa1338, type: 3}
   sharkSpawnPerSecond: 0.5
   sharkSpeed: 5

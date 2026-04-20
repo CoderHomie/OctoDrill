@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
+    [Header("Spawn Telegraph")]
+    [SerializeField] Sprite preSpawnHazardSprite;
+    [SerializeField] float preSpawnWarningSeconds = 1f;
+    [SerializeField] Color preSpawnHazardColor = Color.white;
+    [SerializeField] int preSpawnHazardSortingOrder = 10;
+
     [Header("Shark")]
     [SerializeField] GameObject sharkPrefab; 
     public float sharkSpawnPerSecond = 0.5f;
@@ -31,13 +37,13 @@ public class Main : MonoBehaviour
 
         if (Time.time >= nextSharkSpawnTime)
         {
-            SpawnShark();
+            QueueSharkSpawn();
             nextSharkSpawnTime = Time.time + (1f / sharkSpawnPerSecond);
         }
 
         if (Time.time >= nextUrchinSpawnTime)
         {
-            SpawnUrchin();
+            QueueUrchinSpawn();
             nextUrchinSpawnTime = Time.time + (1f / urchinSpawnPerSecond);
         }
     }
@@ -51,7 +57,40 @@ public class Main : MonoBehaviour
         nextUrchinSpawnTime = Mathf.Max(nextUrchinSpawnTime, _spawnResumeTime);
     }
 
-    void SpawnShark()
+    struct SharkSpawnInfo
+    {
+        public Vector3 spawnPos;
+        public Vector3 warningPos;
+        public float direction;
+        public bool spawnFromLeft;
+    }
+
+    struct UrchinSpawnInfo
+    {
+        public Vector3 spawnPos;
+        public Vector3 warningPos;
+        public UrchinEnemy.EntrySide entrySide;
+    }
+
+    void QueueSharkSpawn()
+    {
+        if (sharkPrefab == null)
+            return;
+
+        SharkSpawnInfo spawnInfo = BuildSharkSpawnInfo();
+        StartCoroutine(SpawnSharkAfterWarning(spawnInfo));
+    }
+
+    void QueueUrchinSpawn()
+    {
+        if (urchinPrefab == null)
+            return;
+
+        UrchinSpawnInfo spawnInfo = BuildUrchinSpawnInfo();
+        StartCoroutine(SpawnUrchinAfterWarning(spawnInfo));
+    }
+
+    SharkSpawnInfo BuildSharkSpawnInfo()
     {
         // Random Y between bounds
         int spawnY = Random.Range(minCell.y, maxCell.y + 1);
@@ -70,25 +109,20 @@ public class Main : MonoBehaviour
             direction = -1f;
         }
 
-        Vector3 spawnPos = CellToWorldPosition(new Vector2Int(spawnX, spawnY));
-        GameObject shark = Instantiate(sharkPrefab, spawnPos, Quaternion.identity);
-        SharkEnemy sharkEnemy = shark.GetComponent<SharkEnemy>();
-        SpriteRenderer spriteRend = shark.GetComponentInChildren<SpriteRenderer>();
-
-        sharkEnemy.sharkSpeed = sharkSpeed * direction;
-
-        if(!spawnFromLeft && spriteRend != null)
-            {
-                spriteRend.flipX = true;
-            }
+        SharkSpawnInfo info = new SharkSpawnInfo
+        {
+            spawnPos = CellToWorldPosition(new Vector2Int(spawnX, spawnY)),
+            warningPos = CellToWorldPosition(new Vector2Int(spawnFromLeft ? minCell.x : maxCell.x, spawnY)),
+            direction = direction,
+            spawnFromLeft = spawnFromLeft
+        };
+        return info;
     }
 
-    void SpawnUrchin()
+    UrchinSpawnInfo BuildUrchinSpawnInfo()
     {
         bool spawnFromLeftOrRight = Random.value > 0.5f;
         bool spawnFromLeft = Random.value > 0.5f;
-
-        float direction;
         Vector2Int spawnCell;
         UrchinEnemy.EntrySide entrySide;
 
@@ -98,13 +132,11 @@ public class Main : MonoBehaviour
             {
                 spawnCell = new Vector2Int(minCell.x - 2, Random.Range(minCell.y, maxCell.y + 1));
                 entrySide = UrchinEnemy.EntrySide.Left;
-                direction = 1f;
             }
             else
             {
                 spawnCell = new Vector2Int(maxCell.x + 2, Random.Range(minCell.y, maxCell.y + 1));
                 entrySide = UrchinEnemy.EntrySide.Right;
-                direction = -1f;
             }
         }
         else
@@ -115,28 +147,114 @@ public class Main : MonoBehaviour
             {
                 spawnCell = new Vector2Int(Random.Range(minCell.x, maxCell.x + 1), maxCell.y + 2);
                 entrySide = UrchinEnemy.EntrySide.Top;
-                direction = -1f;
             }
             else
             {
                 spawnCell = new Vector2Int(Random.Range(minCell.x, maxCell.x + 1), minCell.y - 2);
                 entrySide = UrchinEnemy.EntrySide.Bottom;
-                direction = 1f;
             }
         }
 
-        Vector3 spawnPos = CellToWorldPosition(spawnCell);
-        GameObject urchin = Instantiate(urchinPrefab, spawnPos, Quaternion.identity);
+        UrchinSpawnInfo info = new UrchinSpawnInfo
+        {
+            spawnPos = CellToWorldPosition(spawnCell),
+            warningPos = CellToWorldPosition(GetFirstInBoundsCellForEntry(spawnCell, entrySide)),
+            entrySide = entrySide
+        };
+        return info;
+    }
+
+    System.Collections.IEnumerator SpawnSharkAfterWarning(SharkSpawnInfo spawnInfo)
+    {
+        SpawnPreWarningHazard(spawnInfo.warningPos);
+        yield return WaitForPreSpawnWarning();
+
+        if (this == null || !isActiveAndEnabled)
+            yield break;
+        if (PlayerLivesManager.Instance != null && PlayerLivesManager.Instance.IsGameOver)
+            yield break;
+        if (sharkPrefab == null)
+            yield break;
+
+        GameObject shark = Instantiate(sharkPrefab, spawnInfo.spawnPos, Quaternion.identity);
+        SharkEnemy sharkEnemy = shark.GetComponent<SharkEnemy>();
+        SpriteRenderer spriteRend = shark.GetComponentInChildren<SpriteRenderer>();
+
+        if (sharkEnemy != null)
+            sharkEnemy.sharkSpeed = sharkSpeed * spawnInfo.direction;
+
+        if(!spawnInfo.spawnFromLeft && spriteRend != null)
+            {
+                spriteRend.flipX = true;
+            }
+    }
+
+    System.Collections.IEnumerator SpawnUrchinAfterWarning(UrchinSpawnInfo spawnInfo)
+    {
+        SpawnPreWarningHazard(spawnInfo.warningPos);
+        yield return WaitForPreSpawnWarning();
+
+        if (this == null || !isActiveAndEnabled)
+            yield break;
+        if (PlayerLivesManager.Instance != null && PlayerLivesManager.Instance.IsGameOver)
+            yield break;
+        if (urchinPrefab == null)
+            yield break;
+
+        GameObject urchin = Instantiate(urchinPrefab, spawnInfo.spawnPos, Quaternion.identity);
 
         UrchinEnemy urchinEnemy = urchin.GetComponent<UrchinEnemy>();
-        urchinEnemy.urchinSpeed = urchinSpeed;
-        urchinEnemy.entrySide = entrySide;
-        urchinEnemy.spikeCount = numSpikes;
+        if (urchinEnemy != null)
+        {
+            urchinEnemy.urchinSpeed = urchinSpeed;
+            urchinEnemy.entrySide = spawnInfo.entrySide;
+            urchinEnemy.spikeCount = numSpikes;
+        }
 
         SpriteRenderer spriteRend = urchin.GetComponentInChildren<SpriteRenderer>();
-        if (spriteRend != null && entrySide == UrchinEnemy.EntrySide.Left)
+        if (spriteRend != null && spawnInfo.entrySide == UrchinEnemy.EntrySide.Left)
             spriteRend.flipX = true;
-    }    
+    }
+
+    void SpawnPreWarningHazard(Vector3 spawnPos)
+    {
+        if (preSpawnHazardSprite == null)
+            return;
+
+        GameObject telegraph = new GameObject("SpawnWarning");
+        telegraph.transform.position = spawnPos;
+
+        SpriteRenderer renderer = telegraph.AddComponent<SpriteRenderer>();
+        renderer.sprite = preSpawnHazardSprite;
+        renderer.color = preSpawnHazardColor;
+        renderer.sortingOrder = preSpawnHazardSortingOrder;
+
+        if (preSpawnWarningSeconds > 0f && telegraph != null)
+            Destroy(telegraph, preSpawnWarningSeconds);
+    }
+
+    WaitForSeconds WaitForPreSpawnWarning()
+    {
+        float waitSeconds = Mathf.Max(0f, preSpawnWarningSeconds);
+        return new WaitForSeconds(waitSeconds);
+    }
+
+    Vector2Int GetFirstInBoundsCellForEntry(Vector2Int spawnCell, UrchinEnemy.EntrySide entrySide)
+    {
+        switch (entrySide)
+        {
+            case UrchinEnemy.EntrySide.Left:
+                return new Vector2Int(minCell.x, spawnCell.y);
+            case UrchinEnemy.EntrySide.Right:
+                return new Vector2Int(maxCell.x, spawnCell.y);
+            case UrchinEnemy.EntrySide.Top:
+                return new Vector2Int(spawnCell.x, maxCell.y);
+            case UrchinEnemy.EntrySide.Bottom:
+                return new Vector2Int(spawnCell.x, minCell.y);
+            default:
+                return spawnCell;
+        }
+    }
 
     Vector3 CellToWorldPosition(Vector2Int cell)
     {
