@@ -9,6 +9,14 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("OctoDrill");
     }
+    public void HowToPlayButton()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
+    public void CreditsButton()
+    {
+        SceneManager.LoadScene("Credits");
+    }
     public void ExitButton()
     {
         Application.Quit();
