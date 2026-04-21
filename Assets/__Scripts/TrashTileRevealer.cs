@@ -214,8 +214,13 @@ public class TrashTileRevealer : MonoBehaviour
 
         ApplyRandomTileMix();
 
+        if (player != null)
+            player.TeleportToViewportCenter();
+
         if (revealStartingCell && player != null)
             RevealCell(player.GridPosition);
+
+        ScoreHud.TryAdvanceLevel();
     }
 
     void DestroySpawnedHazards()

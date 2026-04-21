@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Updates UI Text for the current run score and persisted high score. High score uses PlayerPrefs (works in WebGL).
-/// Place on a scene object (e.g. Canvas or empty "UI" object). Drag your <c>Score</c> and <c>High Score</c> Text components into the fields.
+/// Place on a scene object (e.g. Canvas or empty "UI" object). Drag your <c>Score</c>, <c>High Score</c>, and optional <c>Level</c> Text components into the fields.
 /// On the main menu, leave <see cref="scoreText"/> empty if you only want to show the high score line.
 /// From gameplay, call <see cref="AddScore"/> or <see cref="TryAddScore"/>.
+/// Call <see cref="TryAdvanceLevel"/> when a new grid round begins (e.g. after the drill / goal tile is reached).
 /// </summary>
 public class ScoreHud : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class ScoreHud : MonoBehaviour
     [SerializeField] string scoreFormat = "Score: {0}";
     [SerializeField] string highScoreFormat = "High Score: {0}";
 
+    [Tooltip("Drag a UI Text for the current round / grid level (starts at 1, increases after each drill goal).")]
+    [SerializeField] Text levelText;
+    [SerializeField] string levelFormat = "Level: {0}";
+
     [Header("Gameplay HUD row (optional)")]
     [Tooltip("Centers score, high score, and lives vertically between the screen top and the grid top.")]
     [SerializeField] Camera layoutCamera;
@@ -33,9 +38,11 @@ public class ScoreHud : MonoBehaviour
 
     int _runScore;
     int _highScore;
+    int _level = 1;
 
     public int RunScore => _runScore;
     public int HighScore => _highScore;
+    public int CurrentLevel => _level;
 
     void Awake()
     {
@@ -48,6 +55,7 @@ public class ScoreHud : MonoBehaviour
         Instance = this;
         _highScore = PlayerPrefs.GetInt(HighScorePrefsKey, 0);
         _runScore = 0;
+        _level = 1;
         if (layoutCamera == null)
             layoutCamera = Camera.main;
         if (layoutPlayer == null)
@@ -130,6 +138,20 @@ public class ScoreHud : MonoBehaviour
             Instance.AddScore(delta);
     }
 
+    /// <summary>Increase level by 1 after the player hits the drill / goal tile and the grid round respawns.</summary>
+    public void AdvanceLevel()
+    {
+        _level++;
+        RefreshUI();
+    }
+
+    /// <summary>Same as <see cref="AdvanceLevel"/> when a <see cref="ScoreHud"/> may be absent.</summary>
+    public static void TryAdvanceLevel()
+    {
+        if (Instance != null)
+            Instance.AdvanceLevel();
+    }
+
     /// <summary>Reset the run score to 0 (high score unchanged).</summary>
     public void ResetRunScore()
     {
@@ -150,5 +172,7 @@ public class ScoreHud : MonoBehaviour
             scoreText.text = string.Format(scoreFormat, _runScore);
         if (highScoreText != null)
             highScoreText.text = string.Format(highScoreFormat, _highScore);
+        if (levelText != null)
+            levelText.text = string.Format(levelFormat, _level);
     }
 }

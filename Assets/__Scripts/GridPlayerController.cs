@@ -145,6 +145,43 @@ public class GridPlayerController : MonoBehaviour
         ResolveLandingHazards();
     }
 
+    /// <summary>
+    /// Places Doc on the grid cell under the screen center (viewport 0.5, 0.5). Clamps to <see cref="MinCell"/>/<see cref="MaxCell"/>.
+    /// Updates the life-respawn cell for this round. Uses <see cref="Camera.main"/> if <paramref name="cam"/> is null.
+    /// </summary>
+    public void TeleportToViewportCenter(Camera cam = null)
+    {
+        if (cam == null)
+            cam = Camera.main;
+        if (cam == null)
+            return;
+
+        float planeZ = transform.position.z;
+        float zDist = Mathf.Abs(planeZ - cam.transform.position.z);
+        if (zDist < 0.0001f)
+            zDist = 10f;
+
+        Vector3 world = cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, zDist));
+        world.z = planeZ;
+
+        Vector2Int cell = WorldToCell(world);
+        cell = new Vector2Int(
+            Mathf.Clamp(cell.x, minCell.x, maxCell.x),
+            Mathf.Clamp(cell.y, minCell.y, maxCell.y));
+
+        GridPosition = cell;
+        _respawnCell = cell;
+        _isMoving = false;
+        _moveElapsed = 0f;
+        _heldDirection = Vector2Int.zero;
+        _repeatArmed = false;
+        LastMoveDirection = Vector2Int.right;
+        _nextAllowedWhirlpoolTeleportTime = 0f;
+        SnapTransformToGrid();
+        ApplyFacing(LastMoveDirection);
+        ResolveLandingHazards();
+    }
+
     void HandleFatalHit()
     {
         if (PlayerLivesManager.Instance != null)
@@ -269,6 +306,15 @@ public class GridPlayerController : MonoBehaviour
         LastMoveDirection = direction;
         ApplyFacing(direction);
         Moved?.Invoke(from, to);
+
+        // Moved handlers may relocate the player (e.g. goal → next round teleport). Do not snap/lerp back to `to`.
+        if (GridPosition != to)
+        {
+            _isMoving = false;
+            _moveElapsed = 0f;
+            SnapTransformToGrid();
+            return true;
+        }
 
         _moveFromWorld = transform.position;
         _moveToWorld = CellCenterWorld(to);
