@@ -45,7 +45,7 @@ public class GridPlayerController : MonoBehaviour
     [Tooltip("Prevents immediate re-teleport loops when landing on/near another whirlpool.")]
     [SerializeField] float whirlpoolTeleportCooldown = 0.15f;
     [Header("Net")]
-    [Tooltip("If a collider with this tag overlaps the cell center after a step, the player is destroyed (same outcome as Enemy-layer contact).")]
+    [Tooltip("If a collider with this tag overlaps the cell center after a step, only that net tile is replaced with coral.")]
     [SerializeField] string netTag = "net";
 
     public Vector2Int GridPosition { get; private set; }
@@ -82,10 +82,13 @@ public class GridPlayerController : MonoBehaviour
     ContactFilter2D _whirlpoolContactFilter;
     Vector2Int _respawnCell;
     int _enemyLayerIndex = -1;
+    TrashTileRevealer _trashRevealer;
+    bool _isDying;
 
     void Awake()
     {
         _enemyLayerIndex = LayerMask.NameToLayer("Enemy");
+        _trashRevealer = GetComponent<TrashTileRevealer>();
         if (moveAction != null && moveAction.action != null)
         {
             _move = moveAction.action;
@@ -133,6 +136,7 @@ public class GridPlayerController : MonoBehaviour
     /// <summary>Used by <see cref="PlayerLivesManager"/> after losing a life (not on final game over).</summary>
     public void RespawnAtLevelStart()
     {
+        _isDying = false;
         GridPosition = _respawnCell;
         _isMoving = false;
         _moveElapsed = 0f;
@@ -151,6 +155,7 @@ public class GridPlayerController : MonoBehaviour
     /// </summary>
     public void TeleportToViewportCenter(Camera cam = null)
     {
+        _isDying = false;
         if (cam == null)
             cam = Camera.main;
         if (cam == null)
@@ -184,6 +189,10 @@ public class GridPlayerController : MonoBehaviour
 
     void HandleFatalHit()
     {
+        if (_isDying)
+            return;
+        _isDying = true;
+
         if (PlayerLivesManager.Instance != null)
             PlayerLivesManager.Instance.RegisterPlayerDeath(this);
         else
@@ -335,7 +344,15 @@ public class GridPlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other == null)
+            return;
+
+        if (!string.IsNullOrEmpty(netTag) && other.CompareTag(netTag))
+        {
+            HandleNetCollisionAtCell(GridPosition, other);
+            return;
+        }
+
         int enemyLayer = LayerMask.NameToLayer("Enemy");
         if (other.gameObject.layer == enemyLayer)
         {
@@ -435,11 +452,24 @@ public class GridPlayerController : MonoBehaviour
             if (hit == null || !hit.CompareTag(netTag))
                 continue;
 
-            HandleFatalHit();
+            HandleNetCollisionAtCell(GridPosition, hit);
             return true;
         }
 
         return false;
+    }
+
+    void HandleNetCollisionAtCell(Vector2Int cell, Collider2D netCollider)
+    {
+        bool replaced = _trashRevealer != null && _trashRevealer.ReplaceNetTileWithCoralAtCell(cell);
+        if (!replaced && netCollider != null)
+        {
+            // Fallback: remove the touched net so this specific net still gets swapped out.
+            netCollider.gameObject.SetActive(false);
+            Destroy(netCollider.gameObject);
+        }
+
+        HandleFatalHit();
     }
 
     void CheckWhirlpoolAtCurrentCell()

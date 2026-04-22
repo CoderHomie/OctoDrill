@@ -236,6 +236,7 @@ public class TrashTileRevealer : MonoBehaviour
             RevealCell(player.GridPosition);
 
         ScoreHud.TryAdvanceLevel();
+        AwardBonusLifeEveryThirdClearedLevel();
     }
 
     void DestroySpawnedHazards()
@@ -443,5 +444,46 @@ public class TrashTileRevealer : MonoBehaviour
             return true;
 
         return false;
+    }
+
+    /// <summary>Replaces only the net hazard at this cell with coral visuals. Returns true if a net was replaced.</summary>
+    public bool ReplaceNetTileWithCoralAtCell(Vector2Int cell)
+    {
+        if (player == null)
+            return false;
+
+        for (int i = _spawnedHazards.Count - 1; i >= 0; i--)
+        {
+            GameObject hazard = _spawnedHazards[i];
+            if (hazard == null)
+            {
+                _spawnedHazards.RemoveAt(i);
+                continue;
+            }
+
+            if (!IsNetHazard(hazard))
+                continue;
+            if (player.WorldToCell(hazard.transform.position) != cell)
+                continue;
+
+            hazard.SetActive(false);
+            Destroy(hazard);
+            _spawnedHazards.RemoveAt(i);
+            SetTrashVisualsActiveAtCell(cell, false);
+            _trashTilesByCell.Remove(cell);
+            return true;
+        }
+
+        return false;
+    }
+
+    void AwardBonusLifeEveryThirdClearedLevel()
+    {
+        if (ScoreHud.Instance == null || PlayerLivesManager.Instance == null)
+            return;
+
+        int clearedLevels = Mathf.Max(0, ScoreHud.Instance.CurrentLevel - 1);
+        if (clearedLevels > 0 && clearedLevels % 3 == 0)
+            PlayerLivesManager.Instance.AddLives(1);
     }
 }

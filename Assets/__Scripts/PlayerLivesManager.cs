@@ -94,6 +94,16 @@ public class PlayerLivesManager : MonoBehaviour
             revealer.ApplyRevealAfterRespawn();
     }
 
+    /// <summary>Adds lives during active gameplay (for rewards/pickups).</summary>
+    public void AddLives(int amount)
+    {
+        if (_gameOver || amount <= 0)
+            return;
+
+        _lives += amount;
+        RefreshLivesDisplay();
+    }
+
     /// <summary>Hook a UI button to return to gameplay or reload the current scene.</summary>
     public void RestartCurrentScene()
     {

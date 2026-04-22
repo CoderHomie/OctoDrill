@@ -893,10 +893,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 58b647c5b2ec4184e9a07a561cdf0644, type: 3}
-    m_FontSize: 70
+    m_FontSize: 62
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 0
     m_MaxSize: 70
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -904,9 +904,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Goal\n\tClear all trash tiles while avoiding enemies and hazard tiles.
-    Whirlpool tiles will telport players when stepped on. Nets will take a life away.\n\nControls\n\tWASD
-    or Arrow Keys\n"
+  m_Text: "Goal\n\tClear all trash tiles while avoiding hazards. When a drill will
+    appears, step on it to spawn the next level. Whirlpool tiles will telport players
+    when stepped on. Nets will take a life away.\n\nControls\n\tWASD or Arrow Keys"
 --- !u!222 &1478037804
 CanvasRenderer:
   m_ObjectHideFlags: 0
