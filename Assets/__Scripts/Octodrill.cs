@@ -22,12 +22,35 @@ public class Main : MonoBehaviour
     public int numSpikes = 6; 
     float _spawnResumeTime;
 
+    [Header("Difficulty Scaling (per level)")]
+    [Tooltip("Multiplier applied to shark spawns/second each new level.")]
+    [SerializeField] float sharkSpawnRateLevelMultiplier = 1.25f;
+    [Tooltip("Multiplier applied to shark speed each new level.")]
+    [SerializeField] float sharkSpeedLevelMultiplier = 1.10f;
+    [Tooltip("Multiplier applied to urchin spawns/second each new level.")]
+    [SerializeField] float urchinSpawnRateLevelMultiplier = 1.05f;
+    [Tooltip("Upper cap for shark spawns/second after scaling.")]
+    [SerializeField] float sharkSpawnRateMax = 1.5f;
+    [Tooltip("Upper cap for shark speed after scaling.")]
+    [SerializeField] float sharkSpeedMax = 7.5f;
+
+    float _baseSharkSpawnPerSecond;
+    float _baseSharkSpeed;
+    float _baseUrchinSpawnPerSecond;
+
     [Header("Bounds")]
     [SerializeField] Vector2Int minCell = new Vector2Int(-8, -4);
     [SerializeField] Vector2Int maxCell = new Vector2Int(7, 3);
 
 
     // Update is called once per frame
+    void Awake()
+    {
+        _baseSharkSpawnPerSecond = sharkSpawnPerSecond;
+        _baseSharkSpeed = sharkSpeed;
+        _baseUrchinSpawnPerSecond = urchinSpawnPerSecond;
+    }
+
     void Update()
     {
         if (PlayerLivesManager.Instance != null && PlayerLivesManager.Instance.IsGameOver)
@@ -55,6 +78,26 @@ public class Main : MonoBehaviour
         _spawnResumeTime = Mathf.Max(_spawnResumeTime, resumeAt);
         nextSharkSpawnTime = Mathf.Max(nextSharkSpawnTime, _spawnResumeTime);
         nextUrchinSpawnTime = Mathf.Max(nextUrchinSpawnTime, _spawnResumeTime);
+    }
+
+    /// <summary>Called when a new level/round begins; increases enemy pressure.</summary>
+    public void AdvanceDifficultyForNewLevel()
+    {
+        sharkSpawnPerSecond *= Mathf.Max(1f, sharkSpawnRateLevelMultiplier);
+        sharkSpawnPerSecond = Mathf.Min(sharkSpawnPerSecond, Mathf.Max(0.01f, sharkSpawnRateMax));
+
+        sharkSpeed *= Mathf.Max(1f, sharkSpeedLevelMultiplier);
+        sharkSpeed = Mathf.Min(sharkSpeed, Mathf.Max(0.01f, sharkSpeedMax));
+
+        urchinSpawnPerSecond *= Mathf.Max(1f, urchinSpawnRateLevelMultiplier);
+    }
+
+    /// <summary>Restores spawn rates/speeds to their initial inspector values.</summary>
+    public void ResetDifficultyToBase()
+    {
+        sharkSpawnPerSecond = _baseSharkSpawnPerSecond;
+        sharkSpeed = _baseSharkSpeed;
+        urchinSpawnPerSecond = _baseUrchinSpawnPerSecond;
     }
 
     struct SharkSpawnInfo

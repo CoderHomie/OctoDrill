@@ -77,6 +77,9 @@ public class PlayerLivesManager : MonoBehaviour
         if (_lives <= 0)
         {
             _gameOver = true;
+            Main enemySpawner = FindFirstObjectByType<Main>();
+            if (enemySpawner != null)
+                enemySpawner.ResetDifficultyToBase();
             if (pauseTimeOnGameOver)
                 Time.timeScale = 0f;
             if (gameOverRoot != null)

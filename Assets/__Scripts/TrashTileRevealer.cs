@@ -186,7 +186,10 @@ public class TrashTileRevealer : MonoBehaviour
         PlayerLivesManager.ClearSpawnedEnemies();
         Main enemySpawner = FindFirstObjectByType<Main>();
         if (enemySpawner != null)
+        {
+            enemySpawner.AdvanceDifficultyForNewLevel();
             enemySpawner.PauseSpawningForSeconds(enemySpawnDelayAfterGoal);
+        }
         DestroySpawnedHazards();
 
         if (_goalInstance != null)
