@@ -211,6 +211,7 @@ public class Main : MonoBehaviour
     {
         SpawnPreWarningHazard(spawnInfo.warningPos);
         yield return WaitForPreSpawnWarning();
+        yield return WaitForSpawnResumeWindow();
 
         if (this == null || !isActiveAndEnabled)
             yield break;
@@ -236,6 +237,7 @@ public class Main : MonoBehaviour
     {
         SpawnPreWarningHazard(spawnInfo.warningPos);
         yield return WaitForPreSpawnWarning();
+        yield return WaitForSpawnResumeWindow();
 
         if (this == null || !isActiveAndEnabled)
             yield break;
@@ -280,6 +282,12 @@ public class Main : MonoBehaviour
     {
         float waitSeconds = Mathf.Max(0f, preSpawnWarningSeconds);
         return new WaitForSeconds(waitSeconds);
+    }
+
+    System.Collections.IEnumerator WaitForSpawnResumeWindow()
+    {
+        while (Time.time < _spawnResumeTime)
+            yield return null;
     }
 
     Vector2Int GetFirstInBoundsCellForEntry(Vector2Int spawnCell, UrchinEnemy.EntrySide entrySide)

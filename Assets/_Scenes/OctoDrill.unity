@@ -12256,9 +12256,11 @@ MonoBehaviour:
   urchinSpawnPerSecond: 0.075
   urchinSpeed: 2
   numSpikes: 6
-  sharkSpawnRateLevelMultiplier: 1.25
+  sharkSpawnRateLevelMultiplier: 1.2
   sharkSpeedLevelMultiplier: 1.2
   urchinSpawnRateLevelMultiplier: 1.15
+  sharkSpawnRateMax: 1.5
+  sharkSpeedMax: 8
   minCell: {x: -7, y: -3}
   maxCell: {x: 7, y: 3}
 --- !u!114 &917467905

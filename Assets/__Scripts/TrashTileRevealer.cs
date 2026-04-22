@@ -9,6 +9,14 @@ using UnityEngine;
 /// </summary>
 public class TrashTileRevealer : MonoBehaviour
 {
+    static readonly Vector2Int[] CardinalDirs =
+    {
+        Vector2Int.right,
+        Vector2Int.left,
+        Vector2Int.up,
+        Vector2Int.down
+    };
+
     [Header("References")]
     [SerializeField] GridPlayerController player;
     [Tooltip("Parent transform that contains all trash tile SpriteRenderers (for example: Trash Grid).")]
@@ -42,7 +50,7 @@ public class TrashTileRevealer : MonoBehaviour
     [Tooltip("Run score increase each time Doc clears a trash tile (see ScoreHud).")]
     [SerializeField] int scorePerTrashCleared = 100;
     [Tooltip("Delay before enemies begin spawning after Doc hits the drill tile and a new round starts.")]
-    [SerializeField] float enemySpawnDelayAfterGoal = 1.5f;
+    [SerializeField] float enemySpawnDelayAfterGoal = 2f;
 
     readonly Dictionary<Vector2Int, GameObject> _trashTilesByCell = new Dictionary<Vector2Int, GameObject>();
     readonly List<GameObject> _allTrashTiles = new List<GameObject>();
@@ -141,12 +149,16 @@ public class TrashTileRevealer : MonoBehaviour
         if (goalPrefab == null || player == null || _goalActive)
             return;
 
+        ReplaceAllNetTilesWithCoral();
+
         if (spawnGoalAtRandomCell)
             _activeGoalCell = PickRandomGoalCell();
         else if (spawnGoalAtLastClearedCell)
             _activeGoalCell = lastClearedCell;
         else
             _activeGoalCell = goalSpawnCell;
+
+        ClearHazardsAtCell(_activeGoalCell);
 
         Vector3 spawnWorld = player.CellCenterWorld(_activeGoalCell);
 
@@ -249,6 +261,7 @@ public class TrashTileRevealer : MonoBehaviour
         float n = Mathf.Clamp01(netSpawnChance);
         float whirlpoolCutoff = w;
         float netCutoff = w + n;
+        var blockedCells = new HashSet<Vector2Int>();
 
         var cells = new List<Vector2Int>(_trashTilesByCell.Keys);
 
@@ -266,15 +279,88 @@ public class TrashTileRevealer : MonoBehaviour
 
             if (prefab == null)
                 continue;
+            if (!CanPlaceHazardWithoutBlockingReachability(cell, blockedCells))
+                continue;
 
             _trashTilesByCell.Remove(cell);
             SetTrashVisualsActiveAtCell(cell, false);
+            blockedCells.Add(cell);
 
             Vector3 pos = player.CellCenterWorld(cell);
             GameObject spawned = Instantiate(prefab, pos, Quaternion.identity, trashRoot);
             spawned.name = $"{prefab.name} ({cell.x},{cell.y})";
             _spawnedHazards.Add(spawned);
         }
+    }
+
+    bool CanPlaceHazardWithoutBlockingReachability(Vector2Int blockedCandidate, HashSet<Vector2Int> blockedCells)
+    {
+        Vector2Int min = player.MinCell;
+        Vector2Int max = player.MaxCell;
+
+        // Simulate this hazard and verify all remaining walkable cells stay connected.
+        blockedCells.Add(blockedCandidate);
+        bool reachable = AreAllUnblockedCellsConnected(min, max, blockedCells, player.GridPosition);
+        blockedCells.Remove(blockedCandidate);
+        return reachable;
+    }
+
+    bool AreAllUnblockedCellsConnected(
+        Vector2Int min,
+        Vector2Int max,
+        HashSet<Vector2Int> blockedCells,
+        Vector2Int preferredStart)
+    {
+        int totalUnblocked = 0;
+        Vector2Int fallbackStart = preferredStart;
+        bool foundFallback = false;
+
+        for (int y = min.y; y <= max.y; y++)
+        {
+            for (int x = min.x; x <= max.x; x++)
+            {
+                Vector2Int c = new Vector2Int(x, y);
+                if (blockedCells.Contains(c))
+                    continue;
+                totalUnblocked++;
+                if (!foundFallback)
+                {
+                    fallbackStart = c;
+                    foundFallback = true;
+                }
+            }
+        }
+
+        if (totalUnblocked <= 1)
+            return true;
+
+        Vector2Int start = preferredStart;
+        bool preferredInBounds = preferredStart.x >= min.x && preferredStart.x <= max.x &&
+                                 preferredStart.y >= min.y && preferredStart.y <= max.y;
+        if (!preferredInBounds || blockedCells.Contains(preferredStart))
+            start = fallbackStart;
+
+        var visited = new HashSet<Vector2Int>();
+        var queue = new Queue<Vector2Int>();
+        queue.Enqueue(start);
+        visited.Add(start);
+
+        while (queue.Count > 0)
+        {
+            Vector2Int current = queue.Dequeue();
+            for (int i = 0; i < CardinalDirs.Length; i++)
+            {
+                Vector2Int next = current + CardinalDirs[i];
+                if (next.x < min.x || next.x > max.x || next.y < min.y || next.y > max.y)
+                    continue;
+                if (blockedCells.Contains(next) || visited.Contains(next))
+                    continue;
+                visited.Add(next);
+                queue.Enqueue(next);
+            }
+        }
+
+        return visited.Count == totalUnblocked;
     }
 
     void SetTrashVisualsActiveAtCell(Vector2Int cell, bool active)
@@ -290,5 +376,72 @@ public class TrashTileRevealer : MonoBehaviour
             if (player.WorldToCell(t.transform.position) == cell)
                 t.SetActive(active);
         }
+    }
+
+    void ReplaceAllNetTilesWithCoral()
+    {
+        if (player == null)
+            return;
+
+        for (int i = _spawnedHazards.Count - 1; i >= 0; i--)
+        {
+            GameObject hazard = _spawnedHazards[i];
+            if (hazard == null)
+            {
+                _spawnedHazards.RemoveAt(i);
+                continue;
+            }
+
+            if (!IsNetHazard(hazard))
+                continue;
+
+            Vector2Int cell = player.WorldToCell(hazard.transform.position);
+            hazard.SetActive(false);
+            Destroy(hazard);
+            _spawnedHazards.RemoveAt(i);
+
+            // Net replaced by coral: keep trash hidden at this cell.
+            SetTrashVisualsActiveAtCell(cell, false);
+            _trashTilesByCell.Remove(cell);
+        }
+    }
+
+    void ClearHazardsAtCell(Vector2Int cell)
+    {
+        if (player == null)
+            return;
+
+        for (int i = _spawnedHazards.Count - 1; i >= 0; i--)
+        {
+            GameObject hazard = _spawnedHazards[i];
+            if (hazard == null)
+            {
+                _spawnedHazards.RemoveAt(i);
+                continue;
+            }
+
+            if (player.WorldToCell(hazard.transform.position) != cell)
+                continue;
+
+            hazard.SetActive(false);
+            Destroy(hazard);
+            _spawnedHazards.RemoveAt(i);
+            SetTrashVisualsActiveAtCell(cell, false);
+            _trashTilesByCell.Remove(cell);
+        }
+    }
+
+    bool IsNetHazard(GameObject hazard)
+    {
+        if (hazard == null)
+            return false;
+
+        if (!string.IsNullOrEmpty(netIgnoreTag) && hazard.CompareTag(netIgnoreTag))
+            return true;
+
+        if (netPrefab != null && hazard.name.StartsWith(netPrefab.name))
+            return true;
+
+        return false;
     }
 }
