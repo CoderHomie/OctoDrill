@@ -30,19 +30,21 @@
 
 ### Features
 
-**Tile-by-tile exploration** - Move on a discrete grid with smooth optional stepping. Reveal the map by clearing trash-covered cells and watch the coral underneath appear.
+ - **Tile-by-tile exploration** - Move on a discrete grid with smooth optional stepping. Reveal the map by clearing trash-covered cells and watch the coral underneath appear.
 
-**Round goals and escalating pressure** - When every clearable trash tile is gone, a drill goal spawns somewhere on the grid. Touch it to advance: the grid resets, enemies ramp up, and you keep your run going.
+ - **Round goals and escalating pressure** - When every clearable trash tile is gone, a drill goal spawns somewhere on the grid. Touch it to advance: the grid resets, enemies ramp up, and you keep your run going.
 
-**Environmental hazards** - Each new round can mix in **whirlpools** that warp Doc to another safe spot and **nets** that end a life if stepped on—placement stays fair so the grid never becomes unwinnable.
+ - **Environmental hazards** - Each new round can mix in **whirlpools** that warp Doc to another safe spot and **nets** that take a life if stepped on. Placement stays fair, so the grid never becomes unwinnable.
 
-**Enemy waves with warning** - **Sharks** streak in from the sides on random rows. **Urchins** drift in from an edge, pause, then launch **spike bursts** in multiple directions. Spawns show a brief telegraph before the threat arrives.
+ - **Enemy arrive with warning**
+     - **Sharks** streak in from the sides on random rows.
+     - **Urchins** drift in from an edge, pause, then launch **spike bursts** in multiple directions. Spawns show a brief warning before the threat arrives.
 
-**Lives, respawns, and comeback** - Limited lives; lose one and you respawn at the round’s start with enemies cleared. Run out and it’s game over. Clearing every third level earns an extra life.
+ - **Lives, respawns, and comeback** - Limited lives; lose one, and you respawn at the round’s start with enemies cleared. Run out, and it’s game over. Clearing every third level earns an extra life.
 
-**Score and persistence** - Points for clearing trash, a visible level counter, and a **high score** saved locally (including in WebGL) so you can beat your best run.
+ - **Score and persistence** - Points for clearing trash, a visible level counter, and a **high score** saved locally (including in WebGL) so you can beat your best run.
 
-**Menus and presentation** - Main menu, how-to-play, and credits scenes; optional full-screen blue gradient overlay for underwater mood without hiding the action.
+ - **Menus and presentation** - Main menu, how-to-play, and credits scenes; full-screen blue gradient overlay for underwater mood without hiding the action.
 
 ---
 
