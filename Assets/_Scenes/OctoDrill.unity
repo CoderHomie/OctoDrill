@@ -24665,7 +24665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenBlueGradientOverlay
   topColor: {r: 0.82, g: 0.93, b: 1, a: 0}
-  bottomColor: {r: 0.01, g: 0.04, b: 0.14, a: 0.9}
+  bottomColor: {r: 0.01, g: 0.04, b: 0.14, a: 0.5}
   gradientResolution: 256
 --- !u!1 &2020658739
 GameObject:

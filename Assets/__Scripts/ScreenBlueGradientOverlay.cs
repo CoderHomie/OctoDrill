@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ScreenBlueGradientOverlay : MonoBehaviour
 {
     [SerializeField] Color topColor = new Color(0.82f, 0.93f, 1f, 0f);
-    [SerializeField] Color bottomColor = new Color(0.01f, 0.04f, 0.14f, 0.9f);
+    [SerializeField] Color bottomColor = new Color(0.01f, 0.04f, 0.14f, 0.5f);
     [Tooltip("Vertical resolution of the generated 1-pixel-wide texture.")]
     [SerializeField] int gradientResolution = 256;
 

@@ -124,6 +124,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   whirlpoolTeleportCooldown: 0.15
+  netTag: net
 --- !u!114 &3379226934869178947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,8 @@ MonoBehaviour:
   spawnGoalAtRandomCell: 1
   goalSpawnCell: {x: 15, y: 7}
   spawnGoalAtLastClearedCell: 0
+  scorePerTrashCleared: 100
+  enemySpawnDelayAfterGoal: 1.5
 --- !u!58 &7490582942807480901
 CircleCollider2D:
   m_ObjectHideFlags: 0
