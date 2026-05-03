@@ -15,7 +15,7 @@
 
 | Resource                | URL                                                                                  |
 | ----------------------- | ------------------------------------------------------------------------------------ |
-| **Play (WebGL)**        | [Open build]() — *paste public URL after upload*                                     |
+| **Play (WebGL)**        | [Play in browser](https://coderhomie.github.io/OctoDrill/)                                     |
 | **Source / submission** | *[https://github.com/CoderHomie/OctoDrill](https://github.com/CoderHomie/OctoDrill)* |
 
 
