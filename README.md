@@ -1,5 +1,6 @@
 # OctoDrill
 
+
 ### Course Information
 
 **Southern Illinois University Edwardsville**  
@@ -12,7 +13,7 @@
 
 ### Links
 
-
+***Must be played in full screen for proper formatting***
 | Resource                | URL                                                                                  |
 | ----------------------- | ------------------------------------------------------------------------------------ |
 | **Play (WebGL)**        | [Play in browser](https://play.unity.com/en/games/d5850b52-441f-4a20-bb4f-0f2c70403c9b/webgl-builds)                                     |
