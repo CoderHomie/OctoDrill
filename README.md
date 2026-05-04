@@ -15,7 +15,7 @@
 
 | Resource                | URL                                                                                  |
 | ----------------------- | ------------------------------------------------------------------------------------ |
-| **Play (WebGL)**        | [Play in browser](https://coderhomie.github.io/OctoDrill/)                                     |
+| **Play (WebGL)**        | [Play in browser](https://play.unity.com/en/games/d5850b52-441f-4a20-bb4f-0f2c70403c9b/webgl-builds)                                     |
 | **Source / submission** | *[https://github.com/CoderHomie/OctoDrill](https://github.com/CoderHomie/OctoDrill)* |
 
 
